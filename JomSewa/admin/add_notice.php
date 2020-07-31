@@ -53,7 +53,7 @@ if(isset($add))
 		<div class="col-sm-5">
 		<select name="user[]" multiple="multiple" class="form-control">
 			<?php 
-	$sql=mysqli_query($conn,"select id from user");
+	$sql=mysqli_query($conn,"select email,id from user");
 	while($r=mysqli_fetch_array($sql))
 	{
 		echo "<option value='".$r['email']."'>".$r['id']."</option>";
