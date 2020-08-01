@@ -97,16 +97,11 @@ session_start();
 				else
 				{
 					echo "
-					<h4><b>We are JomSewa and we provide 2 cheap cab packages. </b><br><br>
+					<h4><b>We are JomSewa and we provide 3 cheap cab packages. </b><br><br>
 					One Way: <br>
-					UMP ↔ Anywhere in Pekan RM10, <br>
-					UMP ↔ Anywhere in Gambang RM40, <br>
-					UMP ↔ Anywhere in Bandar Kuantan RM35. <br><br>
-					Round Trip: <br>
-					UMP ↔ Anywhere in Pekan RM15, <br>
-					UMP ↔ Anywhere in Gambang RM60,<br>
-					UMP ↔ Anywhere in Bandar Kuantan RM50. <br><br>
-					Pick Up service also available. <br>
+					UMP Gambang ↔ Anywhere in Kuantan RM10, <br>
+					UMP Gambang ↔ Teluk Cempedak RM15, <br>
+					UMP Gambang ↔ UMP Pekan RM30. <br><br>
 					Kindly whatsapp 016-7965487 for more details!</h4>";
 				}
 				?>
