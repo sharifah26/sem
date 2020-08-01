@@ -177,12 +177,24 @@ $users=mysqli_fetch_assoc($sql);
            		 </table>
            		 <br><br>
 			<button onclick="myFunction()">Pay</button>
+			<button><a href="http://localhost/JomSewa/JomSewa/user/index.php?page=booking" class="confirmation">Cancel</a>
+			</button>
 			<button onclick="printContent('receipt')">Print</button>
 </fieldset>
 <script>
 function myFunction() {
   alert("Payment Successful. Estimated arrival : 15 mins");
 }
+</script>
+	
+<script type="text/javascript">
+    var elems = document.getElementsByClassName('confirmation');
+    var confirmIt = function (e) {
+        if (!confirm('Are you sure?')) e.preventDefault();
+    };
+    for (var i = 0, l = elems.length; i < l; i++) {
+        elems[i].addEventListener('click', confirmIt, false);
+    }
 </script>
 	
 <script>
