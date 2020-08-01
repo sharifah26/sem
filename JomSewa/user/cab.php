@@ -133,6 +133,7 @@ $con = mysqli_connect("localhost", "root") or die(mysqli_connect_error());
 			echo "</select>";
 ?><br><br>
 			<input type="Submit" name="submit" value="Confirm">
+			<button type="cancel" onclick="window.location='http://localhost/JomSewa/JomSewa/user/index.php?page=booking';return false;">Cancel</button>
 		</center>
 	</form>
 	<h1 class="page-header">Dashboard</h1>
