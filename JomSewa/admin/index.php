@@ -1,12 +1,13 @@
 <?php 
-session_start();
-include('../connection.php');
-$admin= $_SESSION['admin'];
-if($admin=="")
-{
-header('location:login.php');
-}
+  session_start();
+  include('../connection.php');
+  $admin= $_SESSION['admin'];
+  if($admin=="")
+    {
+    header('location:login.php');
+    }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,7 +19,7 @@ header('location:login.php');
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Online Notice Board Admin Dashboard</title>
+    <title>JomSewa Admin Dashboard</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -41,7 +42,6 @@ header('location:login.php');
   </head>
 
   <body>
-
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -51,11 +51,10 @@ header('location:login.php');
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Welcome Admin !</a>
+          <a class="navbar-brand" href="#">Welcome Admin!</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-           
             <li><a href="logout.php">Logout</a></li>
           </ul>
           <!--<form class="navbar-form navbar-right">
@@ -71,107 +70,86 @@ header('location:login.php');
           <ul class="nav nav-sidebar">
             <li class="active"><a href="index.php">Dashboard <span class="sr-only">(current)</span></a></li>
 			<!-- find users' image if image not found then show dummy image -->
-			
-			
             <li><a href="#"><img src="../images/person.jpg" width="100" height="100" alt="not found"/></a></li>
-			<li><a href="index.php?page=update_password"><span class="glyphicon glyphicon-user"></span> Update Password</a></li>
-            <li><a href="index.php?page=manage_users"><span class="glyphicon glyphicon-user"></span> Manage Users</a></li>
-			<li><a href="index.php?page=notification"><span class="glyphicon glyphicon-envelope"></span> Manage  Notification</a></li>
-			<li><a href="index.php?page=application"><span class="glyphicon glyphicon-envelope"></span> Manage  Driver Application</a></li>
-			<li><a href="index.php?page=report"><span class="glyphicon glyphicon-envelope"></span> Report </a></li>
-            
+			      <li><a href="index.php?page=update_password"><span class="glyphicon glyphicon-user"></span> Update Password</a></li>
+            <li><a href="index.php?page=manage_customer"><span class="glyphicon glyphicon-user"></span> Manage Customer</a></li>
+            <li><a href="index.php?page=notification"><span class="glyphicon glyphicon-envelope"></span> Manage Notification</a></li>
+            <li><a href="index.php?page=application"><span class="glyphicon glyphicon-envelope"></span> Manage Driver Application</a></li>
+            <li><a href="index.php?page=report"><span class="glyphicon glyphicon-envelope"></span> Report</a></li>
           </ul>
-         
-         
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <!-- container-->
 		  <?php 
-		@$page=  $_GET['page'];
-		  if($page!="")
-		  {
-		  	if($page=="manage_users")
-			{
-				include('manage_users.php');
-			
-			}
-			
-			if($page=="update_password")
-			{
-				include('update_password.php');
-			
-			}
-			
-			if($page=="notification")
-			{
-				include('display_notification.php');
-			
-			}
-			
-			if($page=="update_notice")
-			{
-				include('update_notice.php');
-			
-			}
-			
-			if($page=="add_notice")
-			{
-				include('add_notice.php');
-			
-			}
-			
-			if($page=="report")
-			{
-				include('report.php');
-			
-			}
-			
-			if($page=="driverreport")
-			{
-				include('driverreport.php');
-			
-			}
-			
-			if($page=="customerreport")
-			{
-				include('customerreport.php');
-			
-			}
-			
-			if($page=="vehiclereport")
-			{
-				include('vehiclereport.php');
-			
-			}
-			
-			if($page=="bookedreport")
-			{
-				include('bookedreport.php');
-			
-			}
-			
-			if($page=="incomereport")
-			{
-				include('incomereport.php');
-			
-			}
-			
-			if($page=="application")
-			{
-				include('afterlogin.php');
-
-			}
-			
-		  }
+        @$page=  $_GET['page'];
+          if($page!="")
+          {
+            if($page=="manage_customer")
+              {
+                include('manage_users.php');
+              }
+          
+            if($page=="update_password")
+            {
+              include('update_password.php');
+            }
+          
+            if($page=="notification")
+            {
+              include('display_notification.php');
+            }
+          
+            if($page=="update_notice")
+            {
+              include('update_notice.php');
+            }
+          
+            if($page=="add_notice")
+            {
+              include('add_notice.php');
+            }
+          
+            if($page=="report")
+            {
+              include('report.php');
+            }
+          
+            if($page=="driverreport")
+            {
+              include('driverreport.php');
+            }
+          
+            if($page=="customerreport")
+            {
+              include('customerreport.php');
+            }
+          
+            if($page=="vehiclereport")
+            {
+              include('vehiclereport.php');
+            }
+          
+            if($page=="bookedreport")
+            {
+              include('bookedreport.php');
+            }
+          
+            if($page=="incomereport")
+            {
+              include('incomereport.php');
+            }
+          
+            if($page=="application")
+            {
+              include('afterlogin.php');
+            }
+          }
+          else
+          {
+          ?>
+          <!-- container end-->
 		  
-		  else
-		  {
-		  ?>
-		  <!-- container end-->
-		  
-		  <h1 class="page-header">Dashboard</h1>
-		  
-		
+		    <h1 class="page-header">Dashboard</h1>
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
               <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
@@ -194,10 +172,8 @@ header('location:login.php');
               <span class="text-muted">Something else</span>
             </div>
           </div>
-		  
 		  <?php } ?>
 		  
-         
         </div>
       </div>
     </div>
