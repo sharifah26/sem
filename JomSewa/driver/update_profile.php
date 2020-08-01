@@ -19,27 +19,27 @@
 	$res=mysqli_fetch_assoc($sql);
 ?>
 
-<h2>Update Your Profile</h2><br>
+<h2>Update Profile</h2><br>
 	<?php echo @$err;?>
 	<form method="post">
 		<table class="table table-bordered">
 			<tr>
-				<td>Enter Your name</td>
+				<td>Enter Your Name:</td>
 				<Td><input class="form-control" value="<?php echo $res['DriverName'];?>"  type="text" name="n" required/></td>
 			</tr>
 			<tr>
-				<td>Enter Your email </td>
+				<td>Enter Your Email Address:</td>
 				<Td><input class="form-control" type="email" readonly="true" value="<?php echo $res['DriverEmail'];?>"  name="e"/></td>
 			</tr>
 			<tr>
-				<td>Select Your Gender</td>
+				<td>Select Your Gender:</td>
 				<Td>
 					Male<input type="radio" <?php if($res['DriverGender']=="m"){echo "checked";} ?> name="gen" value="m"/>
 					Female<input type="radio" <?php if($res['DriverGender']=="f"){echo "checked";} ?> name="gen" value="f"/>	
 				</td>
 			</tr>
 			<tr>
-				<td>Choose Your services</td>
+				<td>Choose Your Services:</td>
 				<Td>
 					<?php 
 					$arrr=explode(",",$res['DriverServices']);
@@ -50,7 +50,7 @@
 			</tr>
 			<tr>		
 				<Td colspan="2" align="center">
-				<input type="submit" class="btn btn-default" value="Update My Profile" name="update"/>
+				<input type="submit" class="btn btn-default" value="Update Profile" name="update"/>
 				</td>
 			</tr>
 		</table>
