@@ -88,8 +88,9 @@
       			
       			<li><a href="index.php?page=update_password"><span class="glyphicon glyphicon-user"></span> Update Password</a></li>
             <li><a href="index.php?page=update_profile"><span class="glyphicon glyphicon-user"></span> Update Profile</a></li>
-            <li><a href="index.php?page=manage_vehicle"><span class="glyphicon glyphicon-user"></span> Manage Vehicle</a></li>
+            <li><a href="index.php?page=manage_vehicle"><span class="glyphicon glyphicon-user"></span> Add Vehicle</a></li>
             <li><a href="index.php?page=update_maintenance"><span class="glyphicon glyphicon-user"></span> Update Vehicle</a></li>
+	    <li><a href="index.php?page=Delete_Vehicle"><span class="glyphicon glyphicon-user"></span> Delete Vehicle</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -118,6 +119,11 @@
           {
             include('update_maintenance.php');
           }
+	    if($page=="Delete_Vehicle")
+   	  {
+       	    include('Delete_Vehicle.php');
+      
+      	  }
     		  }
     		  else
     		  {
