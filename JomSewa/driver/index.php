@@ -1,10 +1,11 @@
 <?php 
-session_start();
-include('../connection.php');
-$driver=$_SESSION['driver'];
-$sql=mysqli_query($conn,"select * from driver where DriverEmail='$driver' ");
-$users=mysqli_fetch_assoc($sql);
+  session_start();
+  include('../connection.php');
+  $driver=$_SESSION['driver'];
+  $sql=mysqli_query($conn,"select * from driver where DriverEmail='$driver' ");
+  $users=mysqli_fetch_assoc($sql);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,7 +17,7 @@ $users=mysqli_fetch_assoc($sql);
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>JOMSEWA</title>
+    <title>JomSewa Driver Dashboard</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -39,7 +40,6 @@ $users=mysqli_fetch_assoc($sql);
   </head>
 
   <body>
-
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -49,11 +49,10 @@ $users=mysqli_fetch_assoc($sql);
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Hello <?php echo $users['DriverName'];?></a>
+          <a class="navbar-brand" href="#">Hello <?php echo $users['DriverName'];?>!</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-           
             <li><a href="logout.php">Logout</a></li>
           </ul>
           <!--<form class="navbar-form navbar-right">
@@ -67,84 +66,66 @@ $users=mysqli_fetch_assoc($sql);
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="index.php">Dashboard <span class="sr-only">(current)</span></a></li>
 			<!-- find users' image if image not found then show dummy image -->
 			
 			<!-- check users profile image -->
-			<?php 
-			$q=mysqli_query($conn,"select DriverImage from driver where DriverEmail='".$_SESSION['driver']."'");
-			$row=mysqli_fetch_assoc($q);
-			if($row['DriverImage']=="")
-			{
-			?>
-            <li><a href="index.php?page=update_profile_pic"><img title="Update Your profile pic Click here" style="border-radius:50px" src="../images/person.jpg" width="100" height="100" alt="not found"/></a></li>
-			<?php 
-			}
-			else
-			{
-			?>
-			<li><a href="index.php?page=update_profile_pic"><img title="Update Your profile pic Click here"  style="border-radius:50px" src="../images/<?php echo $_SESSION['driver'];?>/<?php echo $row['DriverImage'];?>" width="100" height="100" alt="not found"/></a></li>
-			<?php 
-			}
-			?>
-			
-			
-			
-			<li><a href="index.php?page=update_password"><span class="glyphicon glyphicon-user"></span> Update Password</a></li>
+      			<?php 
+      			$q=mysqli_query($conn,"select DriverImage from driver where DriverEmail='".$_SESSION['driver']."'");
+      			$row=mysqli_fetch_assoc($q);
+      			if($row['DriverImage']=="")
+      			{
+      			?>
+              <li><a href="index.php?page=update_profile_pic"><img title="Update Your profile pic Click here" style="border-radius:50px" src="../images/person.jpg" width="100" height="100" alt="not found"/></a></li>
+      			<?php 
+      			}
+      			else
+      			{
+      			?>
+      			 <li><a href="index.php?page=update_profile_pic"><img title="Update Your profile pic Click here"  style="border-radius:50px" src="../images/<?php echo $_SESSION['driver'];?>/<?php echo $row['DriverImage'];?>" width="100" height="100" alt="not found"/></a></li>
+      			<?php 
+      			}
+      			?>
+      			
+      			<li><a href="index.php?page=update_password"><span class="glyphicon glyphicon-user"></span> Update Password</a></li>
             <li><a href="index.php?page=update_profile"><span class="glyphicon glyphicon-user"></span> Update Profile</a></li>
-              <li><a href="index.php?page=manage_vehicle"><span class="glyphicon glyphicon-user"></span> Manage Vehicle</a></li>
-                <li><a href="index.php?page=update_maintenance"><span class="glyphicon glyphicon-user"></span> Update Vehicle</a></li>
-		
-            
+            <li><a href="index.php?page=manage_vehicle"><span class="glyphicon glyphicon-user"></span> Manage Vehicle</a></li>
+            <li><a href="index.php?page=update_maintenance"><span class="glyphicon glyphicon-user"></span> Update Vehicle</a></li>
           </ul>
-         
-         
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <!-- container-->
 		  <?php 
-		@$page=  $_GET['page'];
-		  if($page!="")
-		  {
-		  	if($page=="update_password")
-			{
-				include('update_password.php');
-			
-			}
-			if($page=="update_profile")
-			{
-				include('update_profile.php');
-			
-			}
-      if($page=="update_profile_pic")
-      {
-        include('update_profile_pic.php');
-      
-      }
-			if($page=="manage_vehicle")
-			{
-				include('manage_vehicle.php');
-			
-			}
-        if($page=="update_maintenance")
-      {
-        include('update_maintenance.php');
-      
-      }
-		  }
-		  else
-		  {
-		  include('update_profile_pic.php');
+    		@$page=  $_GET['page'];
+    		  if($page!="")
+    		  {
+    		  	if($page=="update_password")
+    			{
+    				include('update_password.php');
+    			}
+    			if($page=="update_profile")
+    			{
+    				include('update_profile.php');
+    			}
+          if($page=="update_profile_pic")
+          {
+            include('update_profile_pic.php');
+          }
+    			if($page=="manage_vehicle")
+    			{
+    				include('manage_vehicle.php');
+    			}
+            if($page=="update_maintenance")
+          {
+            include('update_maintenance.php');
+          }
+    		  }
+    		  else
+    		  {
+    		  include('update_profile_pic.php');
 		  ?>
 		  <!-- container end-->
-		   
-		  
-		  <h1 class="page-header">Dashboard</h1>
-		  
-		  
 <?php } ?>
-          
-         
+
         </div>
       </div>
     </div>
