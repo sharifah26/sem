@@ -59,7 +59,7 @@ echo "<td>".$row['AppGender']."</td>";
 echo "<td>".$row['AppServices']."</td>";
 ?>
 
-<Td><a href="javascript:AcceptUser('<?php echo $row['AppID']; ?>')" style='color:Red'><span class='glyphicon glyphicon-check'></span></a></td>
+<Td><a href="javascript:AcceptUser('<?php echo $row['AppID']; ?>')" style='color:Green'><span class='glyphicon glyphicon-check'></span></a></td>
 <Td><a href="javascript:RejectUser('<?php echo $row['AppID']; ?>')" style='color:Red'><span class='glyphicon glyphicon-trash'></span></a></td>
 
 
